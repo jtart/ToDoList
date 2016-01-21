@@ -1,0 +1,85 @@
+$main_colour: #9dc9a8;
+$secondary_colour: #ff6450;
+
+* {
+  box-sizing: border-box;
+  font-family: 'Roboto', Arial;
+  color: #95e2aa;
+  font-weight: 100;
+}
+
+.rebel {
+  color: $secondary_colour;
+}
+
+.achieve {
+  color: $main_colour;
+}
+
+.bt {
+  width: 40px;
+  border: none;
+  cursor: pointer;
+  outline: none;
+  .bt-rebel {
+    background: $secondary_colour;
+    color: #fff;
+  }
+  .bt-achieve {
+    background: $main_colour;
+    color: #444349;
+  }
+}
+
+.txt {
+  background: transparent;
+  width: 100%;
+  outline: none;
+  padding: 10px;
+  margin: 4px 0;
+  border: 1px solid $main_colour;
+  width: 90%;
+  font-size: 16px;
+  position: relative;
+  min-height: 100%;
+}
+
+.page-container {
+  width: 90%;
+  margin: 0 auto;
+  h2 {
+    ext-align: center;
+    font-weight: 900;
+  }
+}
+
+.add-todo .txt {
+  padding: 10px;
+}
+
+.todo-list {
+  li {
+    padding: 10px;
+    margin: 4px 0;
+    border: 1px solid $main_colour;
+    width: 90%;
+    position: relative;
+    min-height: 100%;
+    cursor: pointer;
+    .bt {
+      position: absolute;
+      right: 0;
+      top: 0;
+      height: 100%;
+      transition: width 0.4s ease-in-out;
+    }
+    :hover {
+      width: 80px;
+    }
+  }
+}
+
+.todo-list, .add-todo {
+  list-style-type: none;
+  text-align: left;
+}
