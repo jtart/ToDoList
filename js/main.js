@@ -16,7 +16,8 @@ app.controller('TodoCtrl', function($scope) {
 
   $scope.add = function(e) {
     if ((e.which && e.which === 13) && $scope.newTodoText.length > 0) {
-      $scope.todos.push({id:$scope.getTotalTodos+1, text:$scope.newTodoText, done:false});
+      var newId = $scope.todos[$scope.todos.length - 1].id + 1;
+      $scope.todos.push({id:newId, text:$scope.newTodoText, done:false});
       $scope.newTodoText = '';
     }  
   };

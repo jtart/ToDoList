@@ -1,7 +1,6 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <link href="http://fonts.googleapis.com/css?family=Roboto:100,300" rel="stylesheet" type="text/css" />
     <link rel="stylesheet" href="css/style.css" />
   </head>
   <body data-ng-app="Todo">
@@ -11,7 +10,7 @@
       <ul class="todo-list" data-ng-repeat="todo in todos track by $index">
         <li>
           <input type="checkbox" ng-model="todo.done"/>
-          <span class="done-{{todo.done}}">{{ todo.text }}</span>
+          <span class="done-{{todo.done}}">{{todo.text}}</span>
           <button class="bt bt-achieve" ng-click="delete(todo)">Delete</button>
         </li>
       </ul>
