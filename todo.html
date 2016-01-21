@@ -1,28 +1,24 @@
 <!DOCTYPE html>
 <html>
-
   <head>
     <link href="http://fonts.googleapis.com/css?family=Roboto:100,300" rel="stylesheet" type="text/css" />
     <link rel="stylesheet" href="css/style.css" />
   </head>
   <body data-ng-app="Todo">
     <div class="page-container" data-ng-controller="TodoCtrl">
-      <h2>Todo</h2>
-
+      <h1>Todo List</h1>
+      <h3>You have <span class="emphasis">{{getTotalTodos()}}</span> things left to do.</h3>
       <ul class="todo-list" data-ng-repeat="todo in todos track by $index">
         <li>
-          <span>{{ todo }}</span>
-          <button class="bt bt-achieve" ng-click="done(todo)">Done</button>
+          <input type="checkbox" ng-model="todo.done"/>
+          <span class="done-{{todo.done}}">{{ todo.text }}</span>
+          <button class="bt bt-achieve" ng-click="delete(todo)">Delete</button>
         </li>
       </ul>
       
       <ul class="add-todo">
         <li>
-         <input type="text" 
-                class="txt" 
-                data-ng-model="newTodo"
-                placeholder="New Todo" 
-                data-ng-keyup="add($event)" />
+         <input type="text" class="txt" data-ng-model="newTodoText" placeholder="I gotta..." data-ng-keyup="add($event)" />
         </li>
       </ul>
     </div>

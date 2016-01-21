@@ -1,19 +1,31 @@
 var app = angular.module('Todo', []);
 app.controller('TodoCtrl', function($scope) {
-  $scope.newTodo = '';
-  $scope.todos = [
-    'To do 1'
+  $scope.newTodoText = '';
+  $scope.todos =
+  [
+    {id:1,text:'Make a todo list',done:false},
+    {id:2,text:'Eat a mahoosive bowl of weetos',done:true}
   ];
-  $scope.done = function(todo) {
+
+  $scope.delete = function(todo) {
     var indexOf = $scope.todos.indexOf(todo);
     if (indexOf !== -1) {
       $scope.todos.splice(indexOf, 1);
     }
   };
+
   $scope.add = function(e) {
-    if (e.which && e.which === 13) {
-      $scope.todos.push($scope.newTodo);
-      $scope.newTodo = '';
+    if ((e.which && e.which === 13) && $scope.newTodoText.length > 0) {
+      $scope.todos.push({id:$scope.getTotalTodos+1, text:$scope.newTodoText, done:false});
+      $scope.newTodoText = '';
     }  
+  };
+
+  $scope.getTotalTodos = function () {
+    var x = 0;
+    angular.forEach($scope.todos, function(item) {
+      if (item.done === false) {x++;}
+    });
+    return x;
   };
 });
